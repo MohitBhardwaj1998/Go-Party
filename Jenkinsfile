@@ -10,7 +10,7 @@ pipeline {
     stage('Git-Clone') {
      sh 'git clone https://github.com/MohitBhardwaj1998/Go-Party.git' 
          echo 'Successfully cloned'
-    }
+    } 
 
   }
 }
