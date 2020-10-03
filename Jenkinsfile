@@ -6,7 +6,7 @@ pipeline {
         git(url: 'https://github.com/MohitBhardwaj1998/Go-Party.git', branch: 'master', credentialsId: 'github_Cred')
         echo 'Successfully connected'
       }
-    }
+    } 
     stage('Git-Clone') {
       steps{
           sh 'git clone https://github.com/MohitBhardwaj1998/Go-Party.git' 
