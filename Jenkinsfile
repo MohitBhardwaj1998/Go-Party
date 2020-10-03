@@ -10,8 +10,8 @@ pipeline {
     } 
     stage('Git-Clone') {
       steps{
-        sh 'git remote add origin https://MoitBhardwaj1998:virus.singh101991@github.com/MohitBhardwaj1998/Go-Party.git'
-          sh 'git clone https://github.com/MohitBhardwaj1998/Go-Party.git' 
+         git(url: 'https://github.com/MohitBhardwaj1998/Go-Party.git', branch: 'master', credentialsId: 'github_Cred')
+          sh 'git git@github.com:MohitBhardwaj1998/Go-Party.git' 
          echo 'Successfully cloned'
       }
    
