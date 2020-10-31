@@ -1,6 +1,6 @@
  def dockerRun = "docker build -t mohitbhardwaj/nginx:2.0.0 ."
 def dockerPush = "docker push mohitbhardwaj/nginx:2.0.0"
-dockerrunner = "docker run -p 8080:8080 -d mohitbhardwaj/nginx:2.0.0"
+def dockerrunner = "docker run -p 8080:8080 -d mohitbhardwaj/nginx:2.0.0"
 pipeline {
   agent any
   stages {
