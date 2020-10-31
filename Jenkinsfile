@@ -15,8 +15,8 @@ pipeline {
 	  sshagent(['centos-user']) {
 			
 		 
-		  sh "ssh -o StrictHostKeyChecking=no centos@3.15.137.204 ${dockerRun}"
-		   sh "ssh -o StrictHostKeyChecking=no centos@3.15.137.204 ${dockerPush}"
+		  sh "ssh -o StrictHostKeyChecking=no centos@52.15.59.200 ${dockerRun}"
+		   sh "ssh -o StrictHostKeyChecking=no centos@52.15.59.200 ${dockerPush}"
 		}
 		
       }
