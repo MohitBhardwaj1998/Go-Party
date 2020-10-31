@@ -10,13 +10,26 @@ pipeline {
     } 
     stage('Build Docker Image') {
       steps{
-         
-          sh 'docker build -t MohitBhardwaj1998/nginx:2.0.0 .'
-        
+	  sshagent(['centos-user']) {
+			
+		  def dockerRun = 'docker build -t mohitbhardwaj/nginx:2.0.0 .'
+		  def dockerPush = 'docker push mohitbhardwaj/nginx:2.0.0'
+		  sh "ssh -o StrictHostKeyChecking=no centos@3.15.137.204 ${dockerRun}"
+		   sh "ssh -o StrictHostKeyChecking=no centos@3.15.137.204 ${dockerPush}"
+		}
+		
+      }
+	     
+    } 
+	 stage('docker deploy') {
+      steps{
+         sshagent(['zabbix']) {
+		 dockerRun = 'docker run -p 8080:8080 -d mohitbhardwaj/nginx:2.0.0'
+		  sh "ssh -o StrictHostKeyChecking=no centos@18.221.21.201 ${dockerRun}"			
+			}
       }
    
     } 
 
   }
 }
- 
